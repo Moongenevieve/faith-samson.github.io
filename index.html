@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith Samson — Power Platform Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#22312A;
+    --paper:#F7FBF8;
+    --paper-alt:#E9F2EC;
+    --line:#DCEAE1;
+    --sage:#5E8F76;
+    --sage-deep:#3F6852;
+    --mint:#B7DAC5;
+    --slate:#5F7268;
+    --card:#FFFFFF;
+    --shadow: 0 4px 20px rgba(63,104,82,0.07);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#EAF3ED;
+      --paper:#101A15;
+      --paper-alt:#17241C;
+      --line:#26362C;
+      --sage:#8FC1A5;
+      --sage-deep:#B7DAC5;
+      --mint:#3F6852;
+      --slate:#9FB3A6;
+      --card:#152019;
+      --shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EAF3ED;
+    --paper:#101A15;
+    --paper-alt:#17241C;
+    --line:#26362C;
+    --sage:#8FC1A5;
+    --sage-deep:#B7DAC5;
+    --mint:#3F6852;
+    --slate:#9FB3A6;
+    --card:#152019;
+    --shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Poppins', -apple-system, Segoe UI, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:940px;
+    margin:0 auto;
+    padding:88px 32px 140px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    padding-bottom:48px;
+    margin-bottom:64px;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    color:var(--sage-deep);
+    background:var(--paper-alt);
+    padding:7px 16px;
+    border-radius:999px;
+    margin:0 0 24px;
+  }
+  h1{
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.8rem, 6vw, 4.2rem);
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:-0.015em;
+    color:var(--sage-deep);
+  }
+  .role{
+    font-size:1.25rem;
+    font-weight:500;
+    color:var(--slate);
+    margin:0 0 32px;
+    max-width:560px;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    font-size:14px;
+    font-weight:500;
+  }
+  .contact-row a{
+    color:var(--ink);
+    text-decoration:none;
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+  }
+  .contact-row a:hover{ border-color: var(--sage); color:var(--sage-deep); }
+
+  .intro{
+    max-width:660px;
+    font-size:1.08rem;
+    color:var(--ink);
+    margin-bottom:72px;
+  }
+  .intro p{ margin:0 0 16px; }
+  .intro strong{ color:var(--sage-deep); font-weight:600; }
+
+  /* ---------- Toolkit ---------- */
+  .toolkit{
+    margin-bottom:80px;
+  }
+  .section-label{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--slate);
+    margin:0 0 22px;
+    text-transform:uppercase;
+  }
+  .group-label{
+    font-size:13px;
+    font-weight:600;
+    color:var(--sage-deep);
+    letter-spacing:0.01em;
+    margin:0 0 12px;
+  }
+  .toolkit .chips{
+    margin-bottom:28px;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .chip{
+    font-size:13.5px;
+    font-weight:500;
+    padding:8px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--ink);
+    background:var(--card);
+    white-space:nowrap;
+  }
+
+  /* ---------- Theme sections ---------- */
+  .theme-section{
+    margin-bottom:64px;
+  }
+  .theme-header{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:26px;
+  }
+  .theme-title{
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:1.65rem;
+    margin:0;
+    color:var(--sage-deep);
+  }
+  .theme-count{
+    font-size:13px;
+    font-weight:500;
+    color:var(--slate);
+  }
+
+  /* ---------- Project card ---------- */
+  .project{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    margin-bottom:18px;
+    padding:26px 28px;
+    box-shadow:var(--shadow);
+  }
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    cursor:pointer;
+  }
+  .project-name{
+    font-family:'Poppins', sans-serif;
+    font-weight:600;
+    font-size:1.24rem;
+    margin:0 0 8px;
+    color:var(--ink);
+  }
+  .project-summary{
+    color:var(--slate);
+    font-size:0.98rem;
+    margin:0;
+    max-width:600px;
+  }
+  .toggle{
+    font-size:13px;
+    font-weight:600;
+    color:var(--sage-deep);
+    border:1px solid var(--mint);
+    border-radius:999px;
+    padding:7px 16px;
+    background:var(--paper-alt);
+    flex-shrink:0;
+    white-space:nowrap;
+  }
+  .project-detail{
+    display:none;
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+  .project.open .project-detail{ display:block; }
+  .project-detail ul{
+    margin:0 0 16px;
+    padding-left:20px;
+    font-size:0.96rem;
+    color:var(--ink);
+  }
+  .project-detail li{ margin-bottom:8px; }
+  .impact{
+    display:inline-block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--sage-deep);
+    background:var(--paper-alt);
+    border:1px solid var(--mint);
+    border-radius:999px;
+    padding:8px 16px;
+    margin-bottom:14px;
+  }
+  .stack-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
+  }
+  .stack-row .chip{
+    font-size:12px;
+    padding:5px 12px;
+    background:var(--paper-alt);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:80px;
+    padding-top:40px;
+    border-top:1px solid var(--line);
+    text-align:left;
+  }
+  footer p{
+    color:var(--slate);
+    font-size:0.98rem;
+    max-width:560px;
+  }
+  footer .contact-row{ margin-top:20px; }
+
+  @media (max-width:560px){
+    .wrap{ padding:56px 20px 100px; }
+    .project-head{ flex-direction:column; }
+    .toggle{ align-self:flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">PORTFOLIO — ENTERPRISE POWER PLATFORM SOLUTIONS</p>
+    <h1>Faith Samson</h1>
+    <p class="role">Power Platform Developer | Business Solutions Architect</p>
+    <div class="contact-row">
+      <a href="mailto:Fsamson5@gmail.com">Fsamson5@gmail.com</a>
+      <a href="https://www.linkedin.com/in/faith-samson" target="_blank" rel="noopener">linkedin.com/in/faith-samson</a>
+      <a href="tel:+2348085219971">+234 808 521 9971</a>
+    </div>
+  </header>
+
+  <div class="intro">
+    <p>Three years building production Power Platform solutions inside <strong>First Bank of Nigeria</strong> — one of Nigeria's largest financial institutions. My work sits where business process meets enterprise infrastructure: approval workflows with multi-level routing logic, integrations with on-prem core banking systems and platforms like SAP Concur through custom connectors and RPA handoffs, and reporting layers that replace manual Excel work with live dashboards.</p>
+    <p>Seven applications below, grouped by the business function they serve. Available for remote roles with full US business hours overlap.</p>
+  </div>
+
+  <div class="toolkit">
+    <p class="section-label">TOOLKIT</p>
+
+    <p class="group-label">Power Platform</p>
+    <div class="chips">
+      <span class="chip">Power Apps — Canvas</span>
+      <span class="chip">Power Apps — Model-Driven</span>
+      <span class="chip">Power Automate — Cloud Flows</span>
+      <span class="chip">Power Automate Desktop (RPA)</span>
+      <span class="chip">Dataverse</span>
+      <span class="chip">Power BI</span>
+      <span class="chip">DAX</span>
+      <span class="chip">Power Query</span>
+      <span class="chip">Copilot Studio</span>
+      <span class="chip">AI Builder</span>
+      <span class="chip">Custom Connectors</span>
+    </div>
+
+    <p class="group-label">Programming &amp; Databases</p>
+    <div class="chips">
+      <span class="chip">Python</span>
+      <span class="chip">Java</span>
+      <span class="chip">PowerShell</span>
+      <span class="chip">Oracle DB</span>
+      <span class="chip">PostgreSQL</span>
+      <span class="chip">MySQL</span>
+    </div>
+
+    <p class="group-label">Cloud &amp; Collaboration</p>
+    <div class="chips">
+      <span class="chip">Azure Services</span>
+      <span class="chip">SharePoint</span>
+      <span class="chip">GitHub</span>
+      <span class="chip">Jira</span>
+      <span class="chip">On-prem API Integration</span>
+      <span class="chip">RPA Handoff</span>
+    </div>
+  </div>
+
+  <!-- HR & WORKFORCE MANAGEMENT -->
+  <section class="theme-section">
+    <div class="theme-header">
+      <h2 class="theme-title">HR &amp; Workforce Management</h2>
+      <span class="theme-count">1 application</span>
+    </div>
+
+    <article class="project" id="p1">
+      <div class="project-head" onclick="toggleProject('p1')">
+        <div>
+          <h3 class="project-name">Subsidiary Directory Manager</h3>
+          <p class="project-summary">Cleaned up First Bank's subsidiary Azure AD directory and became the access-control hub for every other Power Platform app built for the subsidiaries.</p>
+        </div>
+        <button class="toggle" type="button">Details</button>
+      </div>
+      <div class="project-detail">
+        <span class="impact">Impact: replaced manual Excel tracking with one clean staff repository — full reporting line visible up to line-six supervisor</span>
+        <ul>
+          <li>Fixed a subsidiary Active Directory with missing data and poorly mapped job roles by giving HR a bulk (Excel) or single-entry data tool</li>
+          <li>Every HR entry runs through a maker-checker process — one person inputs, another validates and approves</li>
+          <li>Staff can self-onboard: they select their supervisor and fill in missing details, while staff number, email, and name stay locked, pulled directly from AD</li>
+          <li>Self-onboarded records route to the supervisor, then to HR, for final approval</li>
+          <li>Doubles as a security admin console — the security team profiles user access into every other Power Platform app built for the subsidiaries, also under maker-checker control</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Apps Canvas</span>
+          <span class="chip">SharePoint List</span>
+          <span class="chip">7 Power Automate flows</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- FINANCE & TREASURY OPERATIONS -->
+  <section class="theme-section">
+    <div class="theme-header">
+      <h2 class="theme-title">Finance &amp; Treasury Operations</h2>
+      <span class="theme-count">3 applications</span>
+    </div>
+
+    <article class="project" id="p2">
+      <div class="project-head" onclick="toggleProject('p2')">
+        <div>
+          <h3 class="project-name">Cash Status Report</h3>
+          <p class="project-summary">Digitized branch tellers' end-of-day cash counts across three currencies, with automatic routing, approvals, and cross-branch reporting.</p>
+        </div>
+        <button class="toggle" type="button">Details</button>
+      </div>
+      <div class="project-detail">
+        <span class="impact">Impact: cut chase-for-approval turnaround time by over 80%</span>
+        <ul>
+          <li>Replaced paper and Excel-based end-of-day cash counts for Naira, Euro, and Dollar with a single input screen</li>
+          <li>System auto-calculates totals and routes through two levels of approval, notifying a global head once complete</li>
+          <li>Users can pull PDF or Excel reports for one branch and day, or aggregate across custom date ranges and multiple branches at once</li>
+          <li>Used Office Scripts to generate the Excel reports, and XML queries against SharePoint to pull and aggregate the underlying data</li>
+          <li>Automated next-morning reminders flag any pending teller submission or unactioned approval</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Apps Canvas</span>
+          <span class="chip">SharePoint List</span>
+          <span class="chip">Document Libraries</span>
+          <span class="chip">Office Scripts</span>
+          <span class="chip">XML</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="p3">
+      <div class="project-head" onclick="toggleProject('p3')">
+        <div>
+          <h3 class="project-name">Legal Budget Tracker</h3>
+          <p class="project-summary">Budget and invoice tracking for the legal team's matters, pulling live invoice approval status straight from SAP Concur.</p>
+        </div>
+        <button class="toggle" type="button">Details</button>
+      </div>
+      <div class="project-detail">
+        <span class="impact">Impact: ~80% efficiency boost; eliminated manual Excel analysis and manual SAP Concur checks</span>
+        <ul>
+          <li>Users create legal matters (matter name, law firm, department, delegated authority, budget) and log quotes (planned spend) and invoices against each</li>
+          <li>A custom connector calls the SAP Concur API daily; once an invoice is approved on SAP, it auto-populates the app's Dataverse tables — no manual lookup needed</li>
+          <li>Tracker view shows actual spend vs. global budget and remaining balance, month by month</li>
+          <li>Invoice list is filterable by status, matter, department, law firm, date range, and aging (e.g. unapproved after 14 days)</li>
+          <li>Power BI dashboard covers matter counts, yearly budgets, spend breakdowns by department and law firm, top-5 matters, and trend/forecast analysis</li>
+          <li>Automated alerts fire at 90% and 100%+ of global budget spend</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Apps Canvas</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Dataverse</span>
+          <span class="chip">Custom Connector — SAP Concur</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="p4">
+      <div class="project-head" onclick="toggleProject('p4')">
+        <div>
+          <h3 class="project-name">Value Chain Management</h3>
+          <p class="project-summary">Manages value chain member promotions against an on-prem banking database, with an RPA bot completing the loop back into the core banking system.</p>
+        </div>
+        <button class="toggle" type="button">Details</button>
+      </div>
+      <div class="project-detail">
+        <ul>
+          <li>Built for the value chain team to upgrade value chain members to "principal" status</li>
+          <li>Pulls value chain data through API calls to an on-prem database — Power Apps has no direct line to First Bank's on-prem systems, so the app calls out through an API layer</li>
+          <li>Supports assigning principal roles, deleting or adding value chains, and adding or updating principal records</li>
+          <li>Aggregates every change into an Excel file, which is handed to an RPA bot that applies the updates directly in the on-prem core banking database</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Apps Canvas</span>
+          <span class="chip">API Integration</span>
+          <span class="chip">RPA Handoff</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- GOVERNANCE & COMPLIANCE -->
+  <section class="theme-section">
+    <div class="theme-header">
+      <h2 class="theme-title">Governance &amp; Compliance</h2>
+      <span class="theme-count">2 applications</span>
+    </div>
+
+    <article class="project" id="p5">
+      <div class="project-head" onclick="toggleProject('p5')">
+        <div>
+          <h3 class="project-name">Change Approval Workflow</h3>
+          <p class="project-summary">Change request system where the approval chain configures itself based on the type of change being submitted.</p>
+        </div>
+        <button class="toggle" type="button">Details</button>
+      </div>
+      <div class="project-detail">
+        <ul>
+          <li>Captures change type, owner, department, product/application, priority, description, reason, impact, assumptions, and attachments in a single form</li>
+          <li>Approval depth adjusts automatically by change type — an IT system support request needs two approval levels, while a defect or enhancement needs three</li>
+          <li>Approvers can approve or reject, and see the full timeline of a request from creation through every approval step</li>
+          <li>Full audit log of every action taken in the app</li>
+          <li>Analytics dashboard breaks requests down by type, status, priority, and how long overdue items have been aging</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Apps</span>
+          <span class="chip">Power Automate</span>
+          <span class="chip">Dashboard/Analytics</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="p6">
+      <div class="project-head" onclick="toggleProject('p6')">
+        <div>
+          <h3 class="project-name">SpeedyApproval</h3>
+          <p class="project-summary">Memo drafting and multi-tier sign-off application with a custom rich text editor and automated image handling for clean PDF output.</p>
+        </div>
+        <button class="toggle" type="button">Details</button>
+      </div>
+      <div class="project-detail">
+        <ul>
+          <li>Users draft memos with subject, sender/recipient, approver and reviewer fields, plus optional sections like executive summary and vendor selection</li>
+          <li>Memos move through sequential review and approval — each approver acts only after the one before them</li>
+          <li>Two memo types: Basic ends at the final approval; KPEX continues on to FinCon, the CFO, the MD, and Manco members where applicable</li>
+          <li>Built a custom rich text field supporting embedded tables and images</li>
+          <li>Wrote a flow that strips images out of that rich text field, stores them in SharePoint, and swaps in the link — then a second flow that reverses this at sign-off, converting the image back to base64 and reinserting it so a clean PDF can be generated</li>
+          <li>Senior approvers can send a memo back to its initiator, escalate to the MD or CFO, request comments, or invite outside reviewers to comment and attach files</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Apps</span>
+          <span class="chip">Power Automate</span>
+          <span class="chip">SharePoint</span>
+          <span class="chip">Custom Rich Text Handling</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- CUSTOMER SERVICE -->
+  <section class="theme-section">
+    <div class="theme-header">
+      <h2 class="theme-title">Customer Service</h2>
+      <span class="theme-count">1 application</span>
+    </div>
+
+    <article class="project" id="p7">
+      <div class="project-head" onclick="toggleProject('p7')">
+        <div>
+          <h3 class="project-name">Customer Complaint / Case Management Solution</h3>
+          <p class="project-summary">Case logging and resolution tracking for customer complaints, wired into live account, transaction, and mandate data.</p>
+        </div>
+        <button class="toggle" type="button">Details</button>
+      </div>
+      <div class="project-detail">
+        <ul>
+          <li>Logs complaints, feedback, inquiries, and service requests for both existing customers and non-customers</li>
+          <li>For an existing customer, entering the account number auto-pulls name, CIF, account type, phone, email, domicile branch, customer group, gender, and date of birth</li>
+          <li>System auto-calculates the resolution turnaround time from the case type — e.g. 8, 24, or 48 hours</li>
+          <li>Resolving team marks cases resolved; the logging team has a 24-hour window afterward to reopen a case if the issue isn't actually fixed</li>
+          <li>Full case history view shows everything that happened on a case, end to end</li>
+          <li>Integrates with three on-prem APIs via custom connectors — customer account details, transaction history, and account mandates</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Apps</span>
+          <span class="chip">Custom Connectors</span>
+          <span class="chip">On-prem API Integration</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <p>Open to remote Power Platform Developer / Business Solutions Architect roles with full US business hours overlap. Happy to walk through the architecture behind any of these in more detail.</p>
+    <div class="contact-row">
+      <a href="mailto:Fsamson5@gmail.com">Fsamson5@gmail.com</a>
+      <a href="https://www.linkedin.com/in/faith-samson" target="_blank" rel="noopener">linkedin.com/in/faith-samson</a>
+      <a href="tel:+2348085219971">+234 808 521 9971</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleProject(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('open');
+    var btn = el.querySelector('.toggle');
+    btn.textContent = el.classList.contains('open') ? 'Hide' : 'Details';
+  }
+</script>
+</body>
+</html>
